@@ -1,8 +1,10 @@
 {
-  "name": "hermes-web-poc",
+  "name": "wave-web-poc",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.2.1",
+    "mqtt": "^2.18.8",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-scripts": "2.1.3"
