@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { Header, MessagesList, SendMessageForm } from './components'
 import * as mqttJS from './modules/mqtt'
-import mqtt from 'mqtt';
+import  Paho from 'paho-mqtt';
 
 class App extends Component {
 
@@ -15,28 +15,44 @@ class App extends Component {
   }
 
   componentDidMount() {
-    var options =
-    {
-        // wsOptions: wsoptions,
-        clientId: "1fa63f2f-0e2a-4d14-ab1b-2d3d020aa1d2", 
-        protocol: 'tcp',
-        hostname: "127.0.0.1",
-        port: 9001,
-        path: "/mqtt"
+
+      // Create a client instance
+      let client = new Paho.Client("ws://localhost:8080/mqtt", "857ca9b3-5ced-4720-bf46-2edbebc3a669");
+
+      // set callback handlers
+      client.onConnectionLost = onConnectionLost;
+      client.onMessageArrived = onMessageArrived;
+  
+      const options = {
+        userName: "857ca9b3-5ced-4720-bf46-2edbebc3a669",
+        password: "tokenaaa",
+        onSuccess: onConnect
+      }
+      // connect the client
+      client.connect(options);
+  
+      // called when the client connects
+      function onConnect() {
+        // Once a connection has been made, make a subscription and send a message.
+        console.log("onConnect");
+        client.subscribe("conversations/private/+/857ca9b3-5ced-4720-bf46-2edbebc3a669");
+        // message = new Paho.MQTT.Message("Hello");
+        // message.destinationName = "/World";
+        // client.send(message); 
+      }
+  
+      // // called when the client loses its connection
+      function onConnectionLost(responseObject) {
+        if (responseObject.errorCode !== 0) {
+          console.log("onConnectionLost:"+responseObject.errorMessage);
+        }
+      }
+  
+      // called when a message arrives
+      function onMessageArrived(message) {
+        console.log("onMessageArrived:"+message.payloadString);
+      }
     }
-    
-    
-        const client  = mqtt.connect("ws://127.0.0.1:8080/mqtt")
-          
-      client.on('connect', function () {
-    
-        console.log("success")
-        // client.subscribe('blabla', function (err) {
-        //     if (!err) {xx
-        //       client.publish('blabla', 'Hello mqtt')
-        //     }
-        // })
-      })  }
 
   sendMessage(message) {
 
