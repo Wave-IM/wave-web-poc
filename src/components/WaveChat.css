@@ -1,0 +1,15 @@
+.WaveChat {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.leftPartContainer {
+    width: 15%;
+}
+
+.rightPartContainer {
+    height: 100%;
+    flex: 1;
+}

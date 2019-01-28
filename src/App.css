@@ -20,4 +20,10 @@ html, body {
 
 .App {
   height: calc(100% - 100px); 
+  display: flex;
+
+}
+
+.chatContainer {
+  flex:1;
 }

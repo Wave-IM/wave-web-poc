@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './MessagesList.css';
+import  md5  from 'md5'
 
 class MessagesList extends Component {
   
@@ -33,7 +34,7 @@ class MessagesList extends Component {
     if (messages.length > 0) {
         messagesList = messages.map( 
           message => {
-              return <li key={message.messageID} className="message">
+              return <li key={md5(message.senderID + message.text + Math.random())} className="message">
                   <div className="sender">{message.senderID}</div>
                   <div className="text">{message.text}</div>
               </li>
