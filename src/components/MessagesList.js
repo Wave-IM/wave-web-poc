@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import './MessagesList.css';
-import  md5  from 'md5'
+import md5 from 'md5'
+import { Config } from '../config';
 
 class MessagesList extends Component {
-  
-  
+
+
   scrollToBottom() {
     this.bottomAnchor.scrollIntoView({ behavior: "smooth" });
   }
@@ -12,11 +13,11 @@ class MessagesList extends Component {
   componentDidMount() {
     this.scrollToBottom();
   }
-  
+
   componentDidUpdate() {
     this.scrollToBottom();
   }
-  
+
   render() {
 
     const messages = this.props.messages
@@ -28,17 +29,19 @@ class MessagesList extends Component {
     )
 
     let messagesList = [];
-    
+
     // If messages are present, we render them in UI
     // else, we display no messages yet (see render())
     if (messages.length > 0) {
-        messagesList = messages.map( 
-          message => {
-              return <li key={md5(message.senderID + message.text + Math.random())} className="message">
-                  <div className="sender">{message.senderID}</div>
-                  <div className="text">{message.text}</div>
-              </li>
+      messagesList = messages.map(
+        message => {
+          if (message.senderID === this.props.selectedConversation || message.senderID === Config.MQTT.clientID) {
+            return <li key={md5(message.senderID + message.text + Math.random())} className="message">
+              <div className="sender">{message.senderID}</div>
+              <div className="text">{message.text}</div>
+            </li>
           }
+        }
       )
     }
 
@@ -47,8 +50,8 @@ class MessagesList extends Component {
         <ul className="messages-list">
           {messagesList.length > 0 ? messagesList : alertInfo}
         </ul>
-        <div style={{ float:"left", clear: "both" }}
-             ref={(el) => { this.bottomAnchor = el; }}>
+        <div style={{ float: "left", clear: "both" }}
+          ref={(el) => { this.bottomAnchor = el; }}>
         </div>
       </div>
     );

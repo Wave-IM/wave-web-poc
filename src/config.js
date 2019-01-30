@@ -1,13 +1,13 @@
 export const Config = {
     MQTT: {
-        connectionURL: "ws://localhost:8080/mqtt",
-        username: "857ca9b3-5ced-4720-bf46-2edbebc3a669",
+        connectionURL: "ws://10.10.10.101:8080/mqtt",
+        username: "3ea00aa3-70e5-4c5f-a3ed-82633a0cb485",
         password: "tokenaaa",
-        clientID: "857ca9b3-5ced-4720-bf46-2edbebc3a669", 
+        clientID: "3ea00aa3-70e5-4c5f-a3ed-82633a0cb485", 
         protocolId: 'MQIsdp',
         protocolVersion: 3,
         protocol: 'ws',
-        hostname: "127.0.0.1",
+        hostname: "10.10.10.101",
         port: 9001,
         path: "/mqtt"
     }

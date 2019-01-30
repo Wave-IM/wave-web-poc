@@ -53,9 +53,12 @@ class ConversationsList extends Component {
     if (conversations.length > 0) {
       conversationsList = conversations.map(
         conversation => {
-          return <a key={md5(Math.random())} className="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-          {conversation}
-          <span class="badge badge-primary badge-pill">2</span>
+          return <a onClick={this.props.onSelectConversation}
+            data-conversationid={conversation}
+            key={md5(Math.random())}
+            className="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+            {conversation}
+            <span className="badge badge-primary badge-pill">2</span>
           </a>
         }
       )

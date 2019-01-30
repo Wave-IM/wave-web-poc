@@ -21,7 +21,7 @@ handleChange(e) {
 handleSubmit(e) {
     e.preventDefault()
     // TO DO : Change hardcoded value
-    this.props.sendMessage(this.state.message, "1fa63f2f-0e2a-4d14-ab1b-2d3d020aa1d2")
+    this.props.sendMessage(this.state.message)
     this.setState({
         message: ''
     })
