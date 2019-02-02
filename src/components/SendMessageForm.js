@@ -3,8 +3,8 @@ import './SendMessageForm.css';
 
 class SendMessageForm extends Component {
 
-constructor() {
-    super()
+constructor(props) {
+    super(props)
     this.state = {
         message: ''
     }

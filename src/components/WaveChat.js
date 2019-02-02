@@ -89,7 +89,7 @@ class WaveChat extends Component {
                     </div>
                     <div className="rightPartContainer">
                         <Header text="Wave Web App PoC" selectedConversation={this.state.selectedConversation} />
-                        <Route render={() => <MessagesList selectedConversation={this.state.selectedConversation} messages={this.state.messages} />} />
+                        <Route path='/chat' render={() => <MessagesList selectedConversation={this.state.selectedConversation} messages={this.state.messages} />} />
                         <SendMessageForm sendMessage={this.sendMessage} />
                     </div>
                 </div>

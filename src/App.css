@@ -25,5 +25,9 @@ html, body {
 }
 
 .chatContainer {
+    flex:1;
+}
+
+.appContainer {
   flex:1;
 }

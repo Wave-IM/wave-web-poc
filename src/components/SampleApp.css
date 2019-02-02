@@ -1,0 +1,13 @@
+.SampleApp {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.sample-app-title {
+    margin-top: 20px;
+}
+
+.articles-title {
+    text-align: center;
+}

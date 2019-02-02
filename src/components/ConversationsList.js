@@ -4,8 +4,8 @@ import md5 from 'md5'
 
 class ConversationsList extends Component {
 
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       conversationToStart: ''
     }

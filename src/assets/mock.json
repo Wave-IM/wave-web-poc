@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "postID": "1",
+            "author": {
+                "authorID": "1",
+                "authorName": "D. Konstantatus",
+                "title": "Grand Espresso Master"
+            },
+            "title": "Common Masonic Symbols & Their Meanings",
+            "text": "No one should ignore symbols and meanings of our masonic brothers. Contact me to know more about these and get an incredible Espresso ☕️",
+            "published": "2019-01-03T04:00",
+            "imageURL": "http://images.fineartamerica.com/images-medium-large-5/freemason-symbol-and-quote-renee-trenholm.jpg"
+        },
+        {
+            "postID": "2",
+            "author": {
+                "authorID": "2",
+                "authorName": "M. Besancus",
+                "title": "Kubectl Whisperer"
+            },
+            "title": "Reptilians & CUI : An insider look",
+            "text": "Do reptilians live among us ? Contact me for an amazing story on how they infiltrated CUI in the late 90's.",
+            "published": "2019-01-03T04:00",
+            "imageURL": "https://voiceofpeopletoday.com/wp-content/uploads/2017/05/reptilian-elite.jpg"
+        },
+        {
+            "postID": "3",
+            "author": {
+                "authorID": "3",
+                "authorName": "T. Vogelsus",
+                "title": "Venerable Frontend Guru"
+            },
+            "title": "How Ornel3000 comet almost erased humankind ?",
+            "text": "Last summer, Ornel3000 comet almost killed the entire humanity. Contact me for an in depth analysis of how this happened.",
+            "published": "2019-01-03T04:00",
+            "imageURL": "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.fineartamerica.com%2Fimages-medium-large%2F2-comet-apocalypse-1857-science-source.jpg&f=1"
+        }
+    ]
+}
