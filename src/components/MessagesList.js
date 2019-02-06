@@ -21,7 +21,7 @@ class MessagesList extends Component {
   render() {
 
     const messages = this.props.messages
-
+    console.log(messages)
     const alertInfo = (
       <div className="alert-warning-container">
         <div className="alert alert-warning">No Messages yet !</div>
@@ -35,12 +35,15 @@ class MessagesList extends Component {
     if (messages.length > 0) {
       messagesList = messages.map(
         message => {
-          if (message.senderID === this.props.selectedConversation || message.senderID === Config.MQTT.clientID) {
-            return <li key={md5(message.senderID + message.text + Math.random())} className="message">
-              <div className="sender">{message.senderID}</div>
-              <div className="text">{message.text}</div>
-            </li>
+          if (message.senderID === this.props.selectedConversation || message.senderID === Config.MQTT.clientID) {
+            return (
+              <li key={md5(message.senderID + message.text + Math.random())} className="message">
+                <div className="sender">{message.senderID}</div>
+                <div className="text">{message.text}</div>
+              </li>
+            )
           }
+          return null
         }
       )
     }

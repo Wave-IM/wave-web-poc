@@ -20,8 +20,8 @@ handleChange(e) {
 
 handleSubmit(e) {
     e.preventDefault()
-    // TO DO : Change hardcoded value
-    this.props.sendMessage(this.state.message)
+    const dest = e.target.parentNode.firstElementChild.firstElementChild.innerText
+    this.props.sendMessage(this.state.message, dest)
     this.setState({
         message: ''
     })

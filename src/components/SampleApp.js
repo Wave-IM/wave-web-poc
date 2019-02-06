@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import './SampleApp.css';
 import { Header, ArticleCard } from './'
-import { WaveMQTTWrapper, WaveUtils } from '../modules/wave'
-import { Config } from '../config'
-import { BrowserRouter, Route } from 'react-router-dom'
 import * as mock from '../assets/mock.json'
 import md5 from 'md5'
 import { Button, Jumbotron, Container, Row, Col } from 'react-bootstrap'
+import * as DemoAPI from '../modules/api'
 
 class SampleApp extends Component {
 
@@ -20,7 +18,28 @@ class SampleApp extends Component {
         }
 
 
-        // this.sendMessage = this.sendMessage.bind(this)
+        this.onLogin = this.onLogin.bind(this)
+        this.handlePassword = this.handlePassword.bind(this)
+        this.handleUsername = this.handleUsername.bind(this)
+
+    }
+
+    handlePassword(e) {
+        this.setState({
+            "password": e.target.value
+        })
+    }
+
+    handleUsername(e) {
+        this.setState({
+            "username": e.target.value
+        })
+    }
+
+    onLogin(e) {
+        e.preventDefault()
+
+        DemoAPI.login(this.state.username, this.state.password)
     }
 
     componentDidMount() {
@@ -71,7 +90,10 @@ class SampleApp extends Component {
     render() {
         return (
             <div className="SampleApp">
-                <Header text="Wave Sample App PoC" />
+                <Header text="Wave Sample App PoC" 
+                withLogin={true} handleSubmit={this.onLogin}
+                handlePassword={this.handlePassword}
+                handleUsername={this.handleUsername}/>
                 <Jumbotron className="text-center">
                     <Container>
                         <h1 className="display-4 pb-5">Secret Society of CUI - Pinboard</h1>

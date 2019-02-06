@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
-import $ from 'jquery'
 import { Card, Button } from 'react-bootstrap';
 
 class ArticleCard extends Component {
-
-    constructor(props) {
-        super(props)
-    }
 
     render() {
         return (
